@@ -3,9 +3,12 @@ package com.personal.petcare_backend.services.user;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.personal.petcare_backend.models.user.SecurityUser;
 import com.personal.petcare_backend.repositories.user.UserRepository;
+
+@Service
 
 public class UserService implements UserDetailsService {
 
