@@ -45,8 +45,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER, ADMIN")
-                        .requestMatchers(HttpMethod.POST, endpoint + "/animals").hasAnyRole("USER, ADMIN")
-                        .anyRequest().authenticated())
+/*                         .requestMatchers(HttpMethod.POST, endpoint + "/PetCares").hasAnyRole("USER, ADMIN")
+ */                        .anyRequest().authenticated())
                 .userDetailsService(service)
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));

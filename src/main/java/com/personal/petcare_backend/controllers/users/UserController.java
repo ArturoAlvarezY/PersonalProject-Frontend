@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("${api-v1}/")
+@RequestMapping(path = "/api/v1")
+
 public class UserController {
-    
-  @GetMapping(path = "/login")
-public ResponseEntity<Map<String, String>> login(){
+    @GetMapping(path = "/login")
+    public ResponseEntity<Map<String, String>> login(){
 
-    SecurityContext securityContext = SecurityContextHolder.getContext();
-    Authentication authentication = securityContext.getAuthentication();
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
 
-    Map<String, String> json = new HashMap<>();
-    json.put("Message", "Logged");
-    json.put("Username", authentication.getName());
-    json.put("role", authentication.getAuthorities().iterator().next().toString());
+        Map<String, String> json = new HashMap<>();
+        json.put("Message", "Logged");
+        json.put("Username", authentication.getName());
+        json.put("role", authentication.getAuthorities().iterator().next().toString());
 
-    return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
-}
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
+    }
 }
