@@ -1,20 +1,28 @@
 <template>
     <section class="container">
-        <h2 class="neon-text">PetCares</h2>
+        <h2 class="neon-text" id="title">PetCares</h2>
     </section>
+
 </template>
 
 <style>
+#title {
+    display: flex;
+}
+
 .container {
     font-family: "Poppins", sans-serif;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
 }
 
 .neon-text {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
     font-size: 180px;
     transition: 3s linear;
     color: transparent;
@@ -23,9 +31,7 @@
             #ff00ff,
             #d633ff,
             #b24cd8,
-            #240046
-        );
-    background-size: 200%;
+            #240046);
     -webkit-background-clip: text;
     animation: move 30s linear infinite;
 }
@@ -52,9 +58,9 @@
         background-position: 0% 50%;
     }
 
-  100% {
-    background-position: 2000px 0;
-  }
+    100% {
+        background-position: 2000px 0;
+    }
 
 }
 </style>
