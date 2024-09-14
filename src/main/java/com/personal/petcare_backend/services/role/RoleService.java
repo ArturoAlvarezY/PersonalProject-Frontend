@@ -19,9 +19,8 @@ public class RoleService {
 
     public Role getById(Long id) {
         Role role = repository.findById(id)
-        .orElseThrow(() -> new RoleNotFoundException("Role not found"));
+                .orElseThrow(() -> new RoleNotFoundException("Role not found"));
         return role;
     }
-    
 
 }
