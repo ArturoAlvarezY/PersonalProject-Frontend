@@ -1,5 +1,6 @@
 package com.personal.petcare_backend.facades;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,8 @@ public class EncoderFacade implements IEncryptFacade {
     PasswordEncoder bCryptPasswordEncoder;
     Base64Encoder base64Encoder;
 
+
+    @Autowired
     public EncoderFacade(PasswordEncoder bCryptPasswordEncoder, Base64Encoder base64Encoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.base64Encoder = base64Encoder;
