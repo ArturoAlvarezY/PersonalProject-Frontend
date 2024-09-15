@@ -3,6 +3,9 @@ package com.personal.petcare_backend.facades.encryptations;
 import com.personal.petcare_backend.implementatios.IEncoder;
 import java.util.Base64;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Base64Encoder implements IEncoder {
 
     @Override

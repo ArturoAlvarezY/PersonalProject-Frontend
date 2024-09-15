@@ -1,5 +1,7 @@
 package com.personal.petcare_backend.controllers.register;
 
+import org.apache.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +22,22 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String register(@RequestHeader String username, @RequestHeader String password) {
-        UserDto newUser = new UserDto();
-        newUser.setUsername(username);
-        newUser.setPassword(password);
-        return service.save(newUser);
+    public ResponseEntity<String> register(@RequestHeader String username, @RequestHeader String password) {
+
+        try {
+            UserDto newUser = new UserDto();
+            newUser.setUsername(username);
+            newUser.setPassword(password);
+            System.out.println("--------------------------------------------------" + newUser.getUsername());
+            service.save(newUser);
+            return ResponseEntity.ok("User registered!");
+
+        } 
+        
+        catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.SC_NOT_FOUND)
+                    .body("Error al registrar el usuario");
+        }
     }
 }

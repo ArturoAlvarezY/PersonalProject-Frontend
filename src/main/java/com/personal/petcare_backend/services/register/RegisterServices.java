@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springframework.stereotype.Service;
 import com.personal.petcare_backend.dtos.UserDto;
+import com.personal.petcare_backend.exceptions.register.SaveUserException;
 import com.personal.petcare_backend.implementatios.IEncryptFacade;
 import com.personal.petcare_backend.models.user.Role;
 import com.personal.petcare_backend.models.user.User;
@@ -25,15 +26,23 @@ public class RegisterServices {
 
     public String save(UserDto newUserDto) {
 
-        String passwordDecoded = encoderFacade.decode("base64", newUserDto.getPassword());
-        String passwordEncoded = encoderFacade.encode("bcrypt", passwordDecoded);
+        try {
+            String passwordDecoded = encoderFacade.decode("base64", newUserDto.getPassword());
+            String passwordEncoded = encoderFacade.encode("bcrypt", passwordDecoded);
 
-        User user = new User(newUserDto.getUsername(), passwordEncoded);
-        user.setRoles(assignDefaultRole());
+            User user = new User(newUserDto.getUsername(), passwordEncoded);
+            user.setRoles(assignDefaultRole());
 
-        repository.save(user);
+            repository.save(user);
 
-        return user.getUsername();
+            return user.getUsername();
+        }
+
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
+        throw new SaveUserException("Can not save the user!");
     }
 
     public Set<Role> assignDefaultRole() {

@@ -45,9 +45,9 @@ public class SecurityConfig {
                         .logoutUrl(endpoint + "/logout") // localhost:8080/api/v1/logout
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER, ADMIN")
-                        .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()
                         /*
                          * .requestMatchers(HttpMethod.POST, endpoint +
                          * "/PetCares").hasAnyRole("USER, ADMIN")
