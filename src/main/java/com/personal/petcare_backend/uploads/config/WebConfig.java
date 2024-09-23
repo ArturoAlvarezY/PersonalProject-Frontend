@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer{
 
-    @Value(value = "${api-endpoint}/**")
+    @Value(value = "api/v1/**")
     private String baseUrl;
 
     @Override

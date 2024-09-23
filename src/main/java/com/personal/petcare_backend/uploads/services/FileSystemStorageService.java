@@ -21,7 +21,6 @@ import com.personal.petcare_backend.uploads.exceptions.ImageNotFoundException;
 import com.personal.petcare_backend.uploads.services.implementations.IStorageService;
 
 @Service
-
 public class FileSystemStorageService implements IStorageService {
 
 	private final Path rootLocation;

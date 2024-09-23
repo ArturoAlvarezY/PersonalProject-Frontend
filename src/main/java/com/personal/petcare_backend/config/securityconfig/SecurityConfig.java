@@ -2,6 +2,7 @@ package com.personal.petcare_backend.config.securityconfig;
 
 import java.util.Arrays;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import com.google.api.client.util.Value;
 import com.personal.petcare_backend.config.basicauth.MyBasicAuthenticationEntryPoint;
 import com.personal.petcare_backend.services.user.UserService;
+import com.personal.petcare_backend.uploads.services.implementations.IStorageService;
+
+import java.time.Duration;
+
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +43,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+        .cors(cors -> cors.configurationSource(corsConfiguration()))
                 .csrf(csrf -> csrf.disable())
                 .formLogin(form -> form.disable())
                 .logout(out -> out
@@ -48,6 +53,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER, ADMIN")
+                        .requestMatchers(HttpMethod.POST, endpoint + "/upload-image").hasRole("ADMIN")
+
                         /*
                          * .requestMatchers(HttpMethod.POST, endpoint +
                          * "/PetCares").hasAnyRole("USER, ADMIN")
@@ -66,14 +73,24 @@ public class SecurityConfig {
     }
 
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    public CorsConfigurationSource corsConfiguration() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true); 
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173")); 
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); 
+        configuration.setAllowedHeaders(Arrays.asList("*")); 
+        configuration.setMaxAge(Duration.ofHours(1)); 
+    
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration("/**", configuration); 
         return source;
+    }
+
+    	@Bean
+	CommandLineRunner init(IStorageService storageService) {
+		return (args) -> {
+			storageService.deleteAll();
+			storageService.init();
+		};
     }
 }
