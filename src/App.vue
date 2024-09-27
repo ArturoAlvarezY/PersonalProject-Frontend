@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import LogIn from './views/LogIn.vue';
 import Navbar from './components/navbar/Navbar.vue';
+import Footer from './components/footer/Footer.vue';
 </script>
 
 <template>
 <Navbar></Navbar>
 <LogIn></LogIn>
+<Footer></Footer>
 </template>
 
 <style scoped>

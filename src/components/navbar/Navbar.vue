@@ -68,9 +68,6 @@
   <script setup>
   import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
   import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-  import AboutView from '@/views/AboutView.vue';
-  import HomeView from '@/views/HomeView.vue';
-  import LogIn from '@/views/LogIn.vue';
   
   const navigation = [
     { name: 'Login', href: '@/views/Login.vue', current: true },
