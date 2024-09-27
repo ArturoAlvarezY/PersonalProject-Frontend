@@ -12,10 +12,12 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.1.5",
+    "@primevue/themes": "^4.0.7",
     "flowbite": "^2.5.2",
     "flowbite-vue": "^0.1.6",
     "petcare-frontend": "file:",
     "pinia": "^2.1.7",
+    "primevue": "^4.0.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
