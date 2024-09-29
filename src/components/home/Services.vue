@@ -1,16 +1,16 @@
 <template>
     <div class="bg-surface-0 dark:bg-surface-950 px-6 py-20 md:px-12 lg:px-20 text-center" id="aboutUs">
         <div class="mb-4 font-bold text-3xl">
-            <span class="text-surface-900 dark:text-surface-0">One Product, </span>
-            <span class="text-primary-600 dark:text-primary-400">Many Solutions</span>
+            <span class="text-surface-900 dark:text-surface-0">Conoce nuestros </span>
+            <span class="text-primary-600 dark:text-primary-400">servicios ofrecidos</span>
         </div>
-        <div class="text-surface-700 dark:text-surface-0/70 mb-[3rem]">Ac turpis egestas maecenas pharetra convallis
-            posuere morbi leo urna.</div>
+        <div class="text-surface-700 dark:text-surface-0/70 mb-[3rem]">Nuestros cuidadores pueden ser para tu mascota:</div>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-3.5 gap-y-6">
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-desktop text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <b-icon icon="exclamation-triangle-fill" scale="2" variant="warning"></b-icon>
+                    <i class="pi pi-desktop text-2xl lg:text-3xl text-primary-500 light:text-primary-400" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Cuidadores Express</div>
                 <p class="text-surface-700 dark:text-surface-0/70 leading-normal max-w-sm mx-auto text-center">Vamos a
