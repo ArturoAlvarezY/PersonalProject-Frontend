@@ -1,5 +1,5 @@
 <template>
-    <div class="flex lg:flex-row flex-col gap-4 bg-surface-0 dark:bg-surface-900">
+    <div class="flex lg:flex-row flex-col gap-4 bg-surface-0 dark:bg-surface-900" id="services">
         <div class="flex-1 flex items-center justify-center">
             <div class="p-6 pt-12 lg:p-12">
                 <h1 class="text-3xl lg:text-5xl font-bold text-surface-900 dark:text-surface-0 mb-4 lg:leading-normal text-center lg:text-left">
@@ -23,7 +23,7 @@
 import Button from 'primevue/button';
 </script>
 <style>
-body {
+#services {
   background-color: lightblue;
 }
 </style>
