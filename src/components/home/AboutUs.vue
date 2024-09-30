@@ -3,14 +3,14 @@
         <div class="flex-1 flex items-center justify-center">
             <div class="p-6 pt-12 lg:p-12">
                 <h1 class="text-3xl lg:text-5xl font-bold text-surface-900 dark:text-surface-0 mb-4 lg:leading-normal text-center lg:text-left">
-                   El verdadero amor no necesita palabras<br /><span class="text-blue-500 dark:text-blue-400">Solo gestos de carino y dedicacion</span>
+                 Dejando huella <br /><span class="text-blue-500 dark:text-blue-400"> con huellas de amor</span>
                 </h1>
                 <p class="text-surface-700 dark:text-surface-200 leading-normal mb-8 text-center lg:text-left">
                     El verdadero amor no necesita palabras, solo gestos de cariño y dedicación
                 </p>
                 <div class="flex items-center justify-center lg:justify-start gap-6">
-                    <<Button label="Learn More" type="button" />
-                    <Button label="Live Demo" type="button" outlined />>
+                    <RegisterButton></RegisterButton>
+                    <LogIn></LogIn>
                 </div>
             </div>
         </div>
@@ -19,8 +19,11 @@
         </div>
     </div>
 </template>
+
 <script setup>
-import Button from 'primevue/button';
+import RegisterButton from './button/RegisterButton.vue';
+import LogIn from './button/LogIn.vue';
+
 </script>
 <style>
 #services {
