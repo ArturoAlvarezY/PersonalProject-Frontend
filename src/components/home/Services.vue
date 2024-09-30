@@ -4,13 +4,13 @@
             <span class="text-surface-900 dark:text-surface-0">Conoce nuestros </span>
             <span class="text-primary-600 dark:text-primary-400">servicios ofrecidos</span>
         </div>
-        <div class="text-surface-700 dark:text-surface-0/70 mb-[3rem]">Nuestros cuidadores pueden ser para tu mascota:</div>
+        <div class="text-surface-700 dark:text-surface-0/70 mb-[3rem]">Nuestros cuidadores pueden ser para tu mascota:
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-3.5 gap-y-6">
             <div class="w-full p-4">
                 <span
-                    class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <b-icon icon="exclamation-triangle-fill" scale="2" variant="warning"></b-icon>
-                    <i class="pi pi-desktop text-2xl lg:text-3xl text-primary-500 light:text-primary-400" />
+                    class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">                    
+                    <v-icon name="gi-dog-house" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Cuidadores Express</div>
                 <p class="text-surface-700 dark:text-surface-0/70 leading-normal max-w-sm mx-auto text-center">Vamos a
@@ -19,7 +19,7 @@
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-lock text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <v-icon name="gi-sitting-dog" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Paseadores</div>
                 <p class="text-surface-700 dark:text-surface-0/70 leading-normal max-w-sm mx-auto text-center">Paseamos
@@ -28,7 +28,7 @@
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-check-circle text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <v-icon name="gi-jumping-dog" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Educadores</div>
                 <p class="text-surface-700 dark:text-surface-0/70 leading-normal max-w-sm mx-auto text-center">Educamos
@@ -37,7 +37,7 @@
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-globe text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <v-icon name="wi-moon-waning-crescent-5" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Pasar la noche</div>
                 <p class="text-surface-700 dark:text-surface-0/70 leading-normal max-w-sm mx-auto text-center">Deja a tu
@@ -46,7 +46,7 @@
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-github text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <v-icon name="si-petsathome" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Cuidadores de diferentes
                     especies</div>
@@ -57,7 +57,7 @@
             <div class="w-full p-4">
                 <span
                     class="w-16 h-16 mb-6 rounded-lg flex items-center justify-center mx-auto bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
-                    <i class="pi pi-shield text-2xl lg:text-3xl text-primary-500 dark:text-primary-400" />
+                    <v-icon name="gi-love-injection" animation="pulse" />
                 </span>
                 <div class="text-surface-900 dark:text-surface-0 text-xl mb-2 font-medium">Servicio de veterinarios
                 </div>
@@ -67,8 +67,15 @@
         </div>
     </div>
 </template>
+
 <style>
 #aboutUs {
     background-color: #001f3f;
+}
+
+.icono-perro {
+    width: 50px;
+    height: 50px;
+    color: white;
 }
 </style>

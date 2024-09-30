@@ -6,13 +6,14 @@ import App from "./App.vue";
 import router from "./router";
 import Primevue from "primevue/config";
 import Aura from "@primevue/themes/aura";
-import { BootstrapIconsPlugin } from "bootstrap-icons-vue";
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import * as FaIcons from "oh-vue-icons/icons/fa";
+import { FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection } from "oh-vue-icons/icons";
 
-import {
-  BIconBatteryFull,
-  BIconArrow90degDown,
-  BIconBookmark,
-} from "bootstrap-icons-vue";
+addIcons(FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection );
+
+const Fa = Object.values(FaIcons);
+addIcons(...Fa);
 
 const app = createApp(App);
 
@@ -23,9 +24,6 @@ app.use(Primevue, {
     preset: Aura,
   },
 });
-app.use(BootstrapIconsPlugin);
-app.component("BIconBatteryFull", BIconBatteryFull);
-app.component("BIconArrow90degDown", BIconArrow90degDown);
-app.component("BIconBookmark", BIconBookmark);
 
+app.component("v-icon", OhVueIcon);
 app.mount("#app");
