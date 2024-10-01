@@ -104,5 +104,9 @@ import {
     FwbFooterCopyright,
     FwbFooterLink,
     FwbFooterLinkGroup,
+    FwbFooterBrand,
+    FwbFooterIcon
 } from 'flowbite-vue'
+
+
 </script>
