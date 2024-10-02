@@ -4,7 +4,7 @@
     </button>
 </template>
 
-<style>
+<style scoped>
 .bat {
     border: none;
     position: relative;

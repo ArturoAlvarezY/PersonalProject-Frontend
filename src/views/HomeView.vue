@@ -9,6 +9,6 @@ import TheBest from '@/components/home/TheBest.vue';
     <AboutUs/>
     <Services></Services>
     <OurAnimals></OurAnimals>
-<!--     <TheBest></TheBest>
- -->    
+    <TheBest></TheBest>
+  
 </template>
