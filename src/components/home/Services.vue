@@ -68,7 +68,7 @@
     </div>
 </template>
 
-<style>
+<style lang="css" scoped>
 #aboutUs {
     background-color: #001f3f;
 }

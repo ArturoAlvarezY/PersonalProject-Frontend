@@ -8,7 +8,7 @@ import DogWalker from './best/DogWalker.vue';
     </div>
 </template>
 
-<style>
+<style scoped>
 
 #theBest{
     background-color: #dda2a2 !important;

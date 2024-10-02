@@ -77,7 +77,7 @@
 
 </template>
 
-<style>
+<style scoped>
 .cardm {
   display: flex;
   align-items: center;

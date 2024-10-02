@@ -2,7 +2,7 @@
         <img src="C:\Users\CODER F5 ASTURIAS\PetCares\petcare-frontend\src\Images\PetCares-Login.png" id="logo">
 </template>
 
-<style>
+<style scoped>
 .img-logo {
     display: flex;
     padding-left: 150px;

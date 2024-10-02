@@ -25,7 +25,7 @@
     </body>
 </template>
 
-<style>
+<style scoped>
 html {
     scroll-behavior: smooth;
 }
