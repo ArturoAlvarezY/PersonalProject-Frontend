@@ -1,6 +1,5 @@
 <template>
 
-    <body>
         <section class="container">
             <div class="login-container">
                 <div class="circle circle-one"></div>
@@ -22,7 +21,6 @@
             </div>
             <div class="theme-btn-container"></div>
         </section>
-    </body>
 </template>
 
 <style scoped>
@@ -182,4 +180,5 @@ h1 {
 .theme-btn:hover {
     width: 40px !important;
 }
+
 </style>
