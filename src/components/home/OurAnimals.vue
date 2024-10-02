@@ -23,6 +23,8 @@
     padding: 0;
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
+    background-color: black;
+    color: white    
 }
 
 h2 {

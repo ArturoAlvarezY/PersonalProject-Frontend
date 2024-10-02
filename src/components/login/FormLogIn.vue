@@ -1,184 +1,287 @@
 <template>
 
-        <section class="container">
-            <div class="login-container">
-                <div class="circle circle-one"></div>
-                <div class="form-container">
-                    <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png"
-                        alt="illustration" class="illustration" />
-                    <h1 class="opacity">LOGIN</h1>
-                    <form>
-                        <input type="text" placeholder="USERNAME" />
-                        <input type="password" placeholder="PASSWORD" />
-                        <button class="opacity">SUBMIT</button>
-                    </form>
-                    <div class="register-forget opacity">
-                        <a href="">REGISTER</a>
-                        <a href="">FORGOT PASSWORD</a>
-                    </div>
-                </div>
-                <div class="circle circle-two"></div>
-            </div>
-            <div class="theme-btn-container"></div>
-        </section>
+    <div id="Container">
+        <form class="form">
+            <div id="login-lable">Login</div>
+            <input class="form-content" type="text" placeholder="UserName" />
+            <input class="form-content" type="password" placeholder="PassWord" />
+            <button>Continue</button>
+        </form>
+
+        <div id="rays">
+            <svg fill="none" viewBox="0 0 299 152" height="9em" width="18em" xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#paint0_linear_8_3)"
+                    d="M149.5 152H133.42L9.53674e-07 4.70132e-06H149.5L299 4.70132e-06L165.58 152H149.5Z"></path>
+                <defs>
+                    <linearGradient gradientUnits="userSpaceOnUse" y2="12.1981" x2="150.12" y1="152" x1="149.5"
+                        id="paint0_linear_8_3">
+                        <stop stop-color="#00E0FF"></stop>
+                        <stop stop-opacity="0" stop-color="#65EDFF" offset="1"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div id="emiter">
+            <svg fill="none" viewBox="0 0 160 61" height="61" width="160" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_di_1_38)">
+                    <path fill="#2B2B2B"
+                        d="M80 27.9997C121.974 27.9997 156 22.4032 156 15.4996L156 40.4998C156 47.4034 121.974 52.9998 80 52.9998C38.0265 52.9998 4.00028 47.4034 4 40.4998V40.4998V15.51C4.0342 22.4089 38.0474 27.9997 80 27.9997Z"
+                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                </g>
+                <ellipse fill="url(#paint0_radial_1_38)" ry="4.80773" rx="28.3956" cy="17.4236" cx="80"></ellipse>
+                <g filter="url(#filter1_i_1_38)">
+                    <path fill="#323232"
+                        d="M80 28.0002C121.974 28.0002 156 22.4037 156 15.5001C156 8.59648 121.974 3 80 3C38.0264 3 4 8.59648 4 15.5001C4 22.4037 38.0264 28.0002 80 28.0002ZM80.0001 20.308C96.1438 20.308 109.231 18.1555 109.231 15.5002C109.231 12.845 96.1438 10.6925 80.0001 10.6925C63.8564 10.6925 50.7693 12.845 50.7693 15.5002C50.7693 18.1555 63.8564 20.308 80.0001 20.308Z"
+                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                </g>
+                <g filter="url(#filter2_di_1_38)">
+                    <path fill="#378BA6"
+                        d="M106.725 17.4505C108.336 16.8543 109.231 16.1943 109.231 15.4999C109.231 12.8446 96.1438 10.6921 80.0001 10.6921C63.8564 10.6921 50.7693 12.8446 50.7693 15.4999C50.7693 16.1943 51.6645 16.8543 53.2752 17.4504C53.275 17.4414 53.2748 17.4323 53.2748 17.4232C53.2748 14.768 65.2401 12.6155 80.0001 12.6155C94.7601 12.6155 106.725 14.768 106.725 17.4232C106.725 17.4323 106.725 17.4414 106.725 17.4505Z"
+                        clip-rule="evenodd" fill-rule="evenodd"></path>
+                </g>
+                <defs>
+                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="45.5002" width="160"
+                        y="15.4996" x="0" id="filter0_di_1_38">
+                        <feFlood result="BackgroundImageFix" flood-opacity="0"></feFlood>
+                        <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            type="matrix" in="SourceAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite operator="out" in2="hardAlpha"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.620833 0 0 0 0 0.620833 0 0 0 0 0.620833 0 0 0 0.25 0"
+                            type="matrix"></feColorMatrix>
+                        <feBlend result="effect1_dropShadow_1_38" in2="BackgroundImageFix" mode="normal"></feBlend>
+                        <feBlend result="shape" in2="effect1_dropShadow_1_38" in="SourceGraphic" mode="normal">
+                        </feBlend>
+                        <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            type="matrix" in="SourceAlpha"></feColorMatrix>
+                        <feOffset></feOffset>
+                        <feGaussianBlur stdDeviation="8"></feGaussianBlur>
+                        <feComposite k3="1" k2="-1" operator="arithmetic" in2="hardAlpha"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+                        <feBlend result="effect2_innerShadow_1_38" in2="shape" mode="normal"></feBlend>
+                    </filter>
+                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="25.0002" width="152"
+                        y="3" x="4" id="filter1_i_1_38">
+                        <feFlood result="BackgroundImageFix" flood-opacity="0"></feFlood>
+                        <feBlend result="shape" in2="BackgroundImageFix" in="SourceGraphic" mode="normal"></feBlend>
+                        <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            type="matrix" in="SourceAlpha"></feColorMatrix>
+                        <feMorphology result="effect1_innerShadow_1_38" in="SourceAlpha" operator="erode" radius="3">
+                        </feMorphology>
+                        <feOffset></feOffset>
+                        <feGaussianBlur stdDeviation="6.5"></feGaussianBlur>
+                        <feComposite k3="1" k2="-1" operator="arithmetic" in2="hardAlpha"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+                        <feBlend result="effect1_innerShadow_1_38" in2="shape" mode="normal"></feBlend>
+                    </filter>
+                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="26.7583"
+                        width="78.4615" y="0.692139" x="40.7693" id="filter2_di_1_38">
+                        <feFlood result="BackgroundImageFix" flood-opacity="0"></feFlood>
+                        <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            type="matrix" in="SourceAlpha"></feColorMatrix>
+                        <feMorphology result="effect1_dropShadow_1_38" in="SourceAlpha" operator="dilate" radius="2">
+                        </feMorphology>
+                        <feOffset></feOffset>
+                        <feGaussianBlur stdDeviation="4"></feGaussianBlur>
+                        <feComposite operator="out" in2="hardAlpha"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.941176 0 0 0 0 1 0 0 0 1 0" type="matrix">
+                        </feColorMatrix>
+                        <feBlend result="effect1_dropShadow_1_38" in2="BackgroundImageFix" mode="color-dodge"></feBlend>
+                        <feBlend result="shape" in2="effect1_dropShadow_1_38" in="SourceGraphic" mode="normal">
+                        </feBlend>
+                        <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            type="matrix" in="SourceAlpha"></feColorMatrix>
+                        <feMorphology result="effect2_innerShadow_1_38" in="SourceAlpha" operator="erode" radius="1">
+                        </feMorphology>
+                        <feOffset></feOffset>
+                        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+                        <feComposite k3="1" k2="-1" operator="arithmetic" in2="hardAlpha"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.52 0" type="matrix">
+                        </feColorMatrix>
+                        <feBlend result="effect2_innerShadow_1_38" in2="shape" mode="normal"></feBlend>
+                    </filter>
+                    <radialGradient gradientTransform="translate(80 17.4236) rotate(90) scale(6.25004 36.9143)"
+                        gradientUnits="userSpaceOnUse" r="1" cy="0" cx="0" id="paint0_radial_1_38">
+                        <stop stop-color="#00FFF0"></stop>
+                        <stop stop-color="#001AFF" offset="0.901042"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+    </div>
+
+
 </template>
 
 <style scoped>
-html {
-    scroll-behavior: smooth;
+
+body{
+    background-color: white !important;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color);
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-.container {
+#Container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: flex-end;
+    height: 100%;
 }
 
-.login-container {
+#rays {
+    z-index: 2;
     position: relative;
-    width: 22.2rem;
+    bottom: -1.5em;
+    animation: rays 2s ease-in-out infinite;
 }
 
-.form-container {
-    border: 1px solid hsla(0, 0%, 65%, 0.158);
-    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    backdrop-filter: blur(20px);
-    z-index: 99;
-    padding: 2rem;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-
-.login-container form input {
-    display: block;
-    padding: 14.5px;
-    width: 100%;
-    margin: 2rem 0;
-    color: var(--color);
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    letter-spacing: 0.8px;
-    font-size: 15px;
-    backdrop-filter: blur(15px);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.login-container form input:focus {
-    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
-    animation: wobble 0.3s ease-in;
-    -webkit-animation: wobble 0.3s ease-in;
-}
-
-.login-container form button {
-    color: var(--color);
-    display: block;
-    padding: 13px;
-    border-radius: 5px;
-    outline: none;
-    font-size: 18px;
-    letter-spacing: 1.5px;
-    font-weight: bold;
-    width: 100%;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    transition: all 0.1s ease-in-out;
-    border: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-}
-
-.login-container form button:hover {
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
-}
-
-.circle {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    position: absolute;
-}
-
-.illustration {
-    position: absolute;
-    top: -14%;
-    right: -2px;
-    width: 90%;
-}
-
-.circle-one {
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transform: translate(-45%, -45%);
-    -webkit-transform: translate(-45%, -45%);
-    -moz-transform: translate(-45%, -45%);
-    -ms-transform: translate(-45%, -45%);
-    -o-transform: translate(-45%, -45%);
-}
-
-.circle-two {
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    transform: translate(45%, 45%);
-    -webkit-transform: translate(45%, 45%);
-    -moz-transform: translate(45%, 45%);
-    -ms-transform: translate(45%, 45%);
-    -o-transform: translate(45%, 45%);
-}
-
-.register-forget {
-    margin: 1rem 0;
+.form {
+    position: relative;
+    top: 5em;
+    padding: 4%;
+    z-index: 3;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    border: 4px solid #fff;
+    background: rgba(0, 255, 240, 0.52);
+    box-shadow: 0px 0px 64px 0px #82e1ff inset, 0px 0px 16px #a8fffaa6;
+    backdrop-filter: blur(3.5px);
+    gap: 1em;
+    animation: float 2s ease-in-out infinite;
 }
 
-.opacity {
-    opacity: 0.6;
+#login-lable {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-shadow: 0px 0px 16px rgb(243, 243, 243);
 }
 
+.form-content {
+    height: 3em;
+    padding: 1px 8px;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    background: rgba(139, 255, 247, 0.486);
+    box-shadow: 0px 0px 1px 3px #9ee5e3 inset, 0px 4px 4px 0px #181a6040;
+    text-shadow: 0px 1px 4px rgb(243, 243, 243);
+}
 
+.form-content:focus-visible {
+    outline: none;
+    text-decoration: none;
+    background: rgba(139, 189, 255, 0.59);
+    box-shadow: 0px 0px 1px 4px #9ee5e3;
+}
 
-.theme-btn {
+.form-content:hover {
+    background: rgba(139, 189, 255, 0.59);
+}
+
+::placeholder {
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.1rem;
+    text-shadow: 0px 1px 5px rgb(66, 66, 66);
+}
+
+.form button {
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    height: 3.5rem;
+    padding: 0%;
+    color: white;
+    font-size: 1.5em;
+    letter-spacing: 0.3rem;
+    border: 2px solid white;
+    background: linear-gradient(144deg, #9c11ffce, #2000eeb6 50%, #15efffbb);
 }
 
-.theme-btn:hover {
-    width: 40px !important;
+.form button:hover {
+    position: relative;
+    bottom: 4px;
+    background: linear-gradient(144deg, #9c11ff, #2000ee 50%, #15fff3);
+    box-shadow: 0px 0px 2px 2px #ffffff;
 }
 
+@keyframes float {
+    0% {
+        position: relative;
+    }
+
+    50% {
+        top: 50px;
+    }
+
+    100% {
+        position: relative;
+    }
+}
+
+@keyframes rays {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        padding: 2%;
+        max-width: 400px;
+    }
+
+    #login-lable {
+        font-size: 1.75rem;
+        letter-spacing: 5px;
+    }
+
+    .form-content {
+        height: 2.5em;
+    }
+
+    .form button {
+        height: 3rem;
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 400px) {
+    #Container {
+        padding: 1rem;
+    }
+
+    .form {
+        padding: 1%;
+        max-width: 300px;
+    }
+
+    #login-lable {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+
+    .form-content {
+        height: 2.2em;
+    }
+
+    .form button {
+        height: 2.8rem;
+        font-size: 1.2em;
+    }
+}
 </style>

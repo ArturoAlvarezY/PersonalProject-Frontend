@@ -10,6 +10,8 @@
 
 
 .neon-text {
+    display: flex;
+    justify-content: center;
     font-family: "Poppins", sans-serif;
     width: 100%;
     display: flex;
