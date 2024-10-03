@@ -1,4 +1,4 @@
-package com.personal.petcare_backend.users.user;
+package com.personal.petcare_backend.users.exceptions;
 
 public class UserExceptions extends RuntimeException {
 

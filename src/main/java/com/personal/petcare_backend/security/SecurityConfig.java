@@ -51,7 +51,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.POST, endpoint + "/register").permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER, ADMIN")
+                        .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.POST, endpoint + "/upload-image").hasRole("ADMIN")
 
                         /*
