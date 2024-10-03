@@ -1,4 +1,4 @@
-package com.personal.petcare_backend.uploads.services.implementations;
+package com.personal.petcare_backend.uploads.local.services.implementations;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;

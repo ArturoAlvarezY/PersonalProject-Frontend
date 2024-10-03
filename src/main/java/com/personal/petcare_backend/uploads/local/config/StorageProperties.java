@@ -1,4 +1,4 @@
-package com.personal.petcare_backend.uploads.config;
+package com.personal.petcare_backend.uploads.local.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.personal.petcare_backend.uploads.services;
+package com.personal.petcare_backend.uploads.local.services;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.personal.petcare_backend.uploads.config.StorageProperties;
-import com.personal.petcare_backend.uploads.exceptions.ImageNotFoundException;
-import com.personal.petcare_backend.uploads.services.implementations.IStorageService;
+import com.personal.petcare_backend.uploads.local.config.StorageProperties;
+import com.personal.petcare_backend.uploads.local.exceptions.ImageNotFoundException;
+import com.personal.petcare_backend.uploads.local.services.implementations.IStorageService;
 
 @Service
 public class FileSystemStorageService implements IStorageService {

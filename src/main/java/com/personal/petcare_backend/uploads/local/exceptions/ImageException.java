@@ -1,4 +1,4 @@
-package com.personal.petcare_backend.uploads.exceptions;
+package com.personal.petcare_backend.uploads.local.exceptions;
 
 public class ImageException extends RuntimeException {
 

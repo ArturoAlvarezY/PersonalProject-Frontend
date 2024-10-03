@@ -18,7 +18,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.google.api.client.util.Value;
-import com.personal.petcare_backend.uploads.services.implementations.IStorageService;
+import com.personal.petcare_backend.uploads.local.services.implementations.IStorageService;
 import com.personal.petcare_backend.users.service.UserService;
 
 import java.time.Duration;
