@@ -1,6 +1,6 @@
 <script setup>
-import LogoLogin from '@/components/login/LogoLogin.vue';
-import LoginComponent from '@/components/login/Title.vue';
+/* import LogoLogin from '@/components/login/LogoLogin.vue';
+ */import LoginComponent from '@/components/login/Title.vue';
 import FormLogIn from '@/components/login/FormLogIn.vue';
 </script>
 
@@ -8,8 +8,8 @@ import FormLogIn from '@/components/login/FormLogIn.vue';
 
     <div class="parent">
         <div class="image-title">
-            <LogoLogin></LogoLogin>
-            <LoginComponent> </LoginComponent>
+<!--             <LogoLogin></LogoLogin>
+ -->            <LoginComponent> </LoginComponent>
         </div>
 
         <div class="login">
