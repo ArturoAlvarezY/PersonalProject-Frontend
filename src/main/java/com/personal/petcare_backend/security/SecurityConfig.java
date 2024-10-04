@@ -43,18 +43,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.disable())
-                .csrf(csrf -> csrf.disable())
-                .addFilterBefore(new FirebaseAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .formLogin(form -> form.disable())
+        .cors(cors ->  cors.configurationSource(corsConfiguration()))
+        .csrf(csrf -> csrf.disable())
+        .formLogin(form -> form.disable())
+        .addFilterBefore(new FirebaseAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .logout(out -> out
                         .logoutUrl("/api/v1/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/v1/register").permitAll()
-                        .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/login").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/api/v1/upload-image").hasRole("ADMIN")
+                .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/v1/login").hasAnyRole("USER", "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/upload-image").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/v1/register").permitAll()
                         .anyRequest().authenticated())
                 .userDetailsService(service)
                 .httpBasic(basic -> basic.authenticationEntryPoint(myBasicAuthenticationEntryPoint))
