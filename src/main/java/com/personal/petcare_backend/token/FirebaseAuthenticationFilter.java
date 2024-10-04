@@ -19,21 +19,18 @@ public class FirebaseAuthenticationFilter extends AbstractPreAuthenticatedProces
             String idToken = header.substring(7);
             try {
                 FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-                return decodedToken.getUid(); // Devuelve el UID del usuario autenticado
-            } catch (FirebaseAuthException e) {
-                // Maneja la excepción si la verificación del token falla
+                return decodedToken.getUid(); 
+            } 
+            catch (FirebaseAuthException e) {
                 logger.warn("FirebaseToken verification failed: " + e.getMessage(), e);
                 return null;
             }
         }
-        return null; // Retorna null si no hay un token válido
+        return null; 
     }
 
     @Override
     protected Object getPreAuthenticatedCredentials(HttpServletRequest request) {
-        return "N/A"; // No se utilizan credenciales específicas en este flujo
-
+        return "N/A"; 
     }
-
-
 }
