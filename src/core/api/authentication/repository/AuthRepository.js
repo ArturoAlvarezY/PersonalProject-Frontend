@@ -1,24 +1,31 @@
-import axios from "axios";
+import axios from 'axios';
+
 export default class AuthRepository {
     constructor() {
-        this.baseUrl = import.meta.env.VITE_API_ENDPOINT;
+        this.axiosInstance = axios.create({
+            baseURL: import.meta.env.VITE_API_ENDPOINT, 
+            withCredentials: true,
+        });
     }
+
     async login(credentials) {
         try {
-            const response = await axios.get(this.baseUrl + '/login', {
-                auth: {
+            const response = await this.axiosInstance.get('/login', {
+                params: {
                     username: credentials.getUsername(),
-                    password: credentials.getPassword() 
-                },
-                withCredentials: true
+                    password: credentials.getPassword(),
+                }
             });
-            return response.data; 
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-                return { success: false, message: 'Credenciales incorrectas' }; 
+
+            // Verifica explícitamente la respuesta del backend
+            if (response.data && response.data.isAuthenticated) {
+                return { success: true, ...response.data };
             } else {
-                return error.toJSON();
+                return { success: false, message: response.data.message || 'Invalid credentials' };
             }
+        } catch (error) {
+            console.error("AuthRepository Error:", error);
+            return { success: false, message: 'An error occurred. Please try again.' };
         }
     }
 }

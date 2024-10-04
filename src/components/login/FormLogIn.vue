@@ -7,35 +7,41 @@ const authStore = useAuthStore();
 const username = ref('');
 const password = ref('');
 const errorMessage = ref('');
+const loading = ref(false);
 const router = useRouter();
 
-async function login() {
+const login = async () => {
     errorMessage.value = '';
-    if (username.value && password.value) {
-        const response = await authStore.login(username.value, password.value);
+    loading.value = true;
 
-        if (response.isAuthenticated) {
-            router.push({ name: 'home' });
+    try {
+        if (username.value.trim() && password.value.trim()) {
+            const response = await authStore.login(username.value, password.value);
+
+            if (response.isAuthenticated) {
+                console.log("AUTHENTICATED!!!!");
+                await router.push({ name: 'home' });
+            } else {
+                console.log("Wrong User!!!");
+                errorMessage.value = response.message || 'Usuario o contraseña incorrecta';
+            }
         } else {
-            errorMessage.value = 'Usuario o contraseña incorrecta';
+            errorMessage.value = 'Por favor, completa todos los campos.';
         }
-    } else {
-        errorMessage.value = 'Por favor, completa todos los campos.';
+    } catch (error) {
+        console.error("Login Error:", error);
+        errorMessage.value = 'Hubo un problema con el inicio de sesión. Inténtalo de nuevo.';
+    } finally {
+        loading.value = false;
     }
-
-return {
-    username,
-    password,
-    errorMessage,
-    login,
-    authStore,
-}};
-
+};
 </script>
 
 <template>
     <form class="form_main" @submit.prevent="login">
         <label for="username" class="heading">Login</label>
+
+        <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
         <div class="inputContainer">
             <svg viewBox="0 0 16 16" fill="#2e2e2e" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +62,7 @@ return {
             <input placeholder="Password" id="password" class="inputField" type="password" v-model="password" />
         </div>
 
-        <button id="button" type="submit" class="btn btn-primary">Submit</button>
+        <button id="button" type="submit" class="btn btn-primary" :disabled="loading">Submit</button>
 
         <div class="signupContainer">
             <p>Don't have any account?</p>
@@ -73,7 +79,7 @@ return {
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
-    padding: 30px 30px 30px 30px;
+    padding: 30px;
     border-radius: 30px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
 }
@@ -122,6 +128,12 @@ return {
     color: rgb(80, 80, 80);
     font-size: 1em;
     font-weight: 500;
+}
+
+#errorMessage {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
 }
 
 #button {

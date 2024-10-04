@@ -9,11 +9,33 @@ export default class AuthService {
     this.#credentials = credentials;
   }
 
+  
   async login() {
-    const response = await this.#repo.login(this.#credentials);
-    if (response.success === false) {
-      return { isAuthenticated: false, message: response.message };
+    if (
+      !this.#credentials ||
+      typeof this.#credentials.getUsername !== "function" ||
+      typeof this.#credentials.getPassword !== "function"
+    ) {
+      return { isAuthenticated: false, message: "Invalid credentials format" };
     }
-    return { isAuthenticated: true, ...response };
+
+    try {
+      const response = await this.#repo.login(this.#credentials);
+
+      if (!response || response.success === false) {
+        return {
+          isAuthenticated: false,
+          message: response?.message || "Login failed",
+        };
+      }
+
+      return { isAuthenticated: true, ...response };
+    } catch (error) {
+      console.error("AuthService Error:", error);
+      return {
+        isAuthenticated: false,
+        message: "An error occurred during authentication. Please try again.",
+      };
+    }
   }
 }
