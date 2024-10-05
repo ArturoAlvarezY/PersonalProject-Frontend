@@ -1,7 +1,9 @@
 <template>
-    <button class="bat">
-        <span>LogIn</span>
-    </button>
+    <RouterLink to="/login">
+        <button class="bat">
+            <span>LogIn</span>
+        </button>
+    </RouterLink>
 </template>
 
 <style scoped>

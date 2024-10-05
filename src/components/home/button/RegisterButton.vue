@@ -1,5 +1,7 @@
 <template>
-   <button class="button">REGISTER</button>
+  <RouterLink to="/register">
+  <button class="button">REGISTER</button>
+</RouterLink>
 </template>
 
 <style scoped>
