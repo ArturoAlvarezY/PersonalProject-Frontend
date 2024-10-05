@@ -18,6 +18,7 @@ const login = async () => {
         if (username.value.trim() && password.value.trim()) {
             const response = await authStore.login(username.value, password.value);
 
+            // Verifica si el usuario está autenticado
             if (response.isAuthenticated) {
                 console.log("AUTHENTICATED!!!!");
                 await router.push({ name: 'home' });
@@ -35,6 +36,7 @@ const login = async () => {
         loading.value = false;
     }
 };
+
 </script>
 
 <template>
@@ -52,6 +54,7 @@ const login = async () => {
             </svg>
             <input placeholder="Username" id="username" class="inputField" type="text" v-model="username" />
         </div>
+
         <div class="inputContainer">
             <svg viewBox="0 0 16 16" fill="#2e2e2e" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
                 class="inputIcon">

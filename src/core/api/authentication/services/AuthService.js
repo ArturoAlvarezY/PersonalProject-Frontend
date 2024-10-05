@@ -9,7 +9,6 @@ export default class AuthService {
     this.#credentials = credentials;
   }
 
-  
   async login() {
     if (
       !this.#credentials ||
@@ -34,7 +33,9 @@ export default class AuthService {
       console.error("AuthService Error:", error);
       return {
         isAuthenticated: false,
-        message: "An error occurred during authentication. Please try again.",
+        message:
+          error.message ||
+          "An error occurred during authentication. Please try again.",
       };
     }
   }
