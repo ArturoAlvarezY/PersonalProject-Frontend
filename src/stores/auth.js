@@ -9,14 +9,16 @@ export const useAuthStore = defineStore('auth', () => {
         role: '', 
         isAuthenticated: false
     });
-
+    const token = ref(null); // Agrega un ref para el token
     const loading = ref(false);
     const errorMessage = ref('');
 
     function loadUserFromStorage() {
         const storedUser = localStorage.getItem('authUser');
-        if (storedUser) {
+        const storedToken = localStorage.getItem('authToken'); // Carga el token del almacenamiento
+        if (storedUser && storedToken) {
             user.value = { ...JSON.parse(storedUser), isAuthenticated: true };
+            token.value = storedToken; // Carga el token en la tienda
         }
     }
 
@@ -39,12 +41,15 @@ export const useAuthStore = defineStore('auth', () => {
 
             if (response.success && response.isAuthenticated) {
                 user.value = {
+                    id: response.user.id,
                     username: response.user.username,
                     role: response.user.role,
                     isAuthenticated: true
                 };
+                token.value = response.token; // Almacena el token de respuesta
 
                 localStorage.setItem('authUser', JSON.stringify(user.value));
+                localStorage.setItem('authToken', token.value); // Almacena el token
                 console.log("Usuario después del login:", user.value);  
             } else {
                 errorMessage.value = response.message || 'Usuario o contraseña incorrecta';
@@ -62,7 +67,18 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
+    function logout() {
+        user.value = {
+            username: '',
+            role: '', 
+            isAuthenticated: false
+        };
+        token.value = null; 
+        localStorage.removeItem('authUser');
+        localStorage.removeItem('authToken'); // Elimina el token del almacenamiento
+    }
+
     loadUserFromStorage();  
 
-    return { user, login, loading, errorMessage };
+    return { user, token, login, logout, loading, errorMessage };
 });

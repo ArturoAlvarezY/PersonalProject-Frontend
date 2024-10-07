@@ -18,13 +18,20 @@ const login = async () => {
         if (username.value.trim() && password.value.trim()) {
             const response = await authStore.login(username.value, password.value);
 
-            // Verifica si el usuario está autenticado
+            console.log("Respuesta completa de la API:", response); // Agregado para ver la respuesta completa
+
             if (response.isAuthenticated) {
                 console.log("AUTHENTICATED!!!!");
                 await router.push({ name: 'home' });
             } else {
                 console.log("Wrong User!!!");
                 errorMessage.value = response.message || 'Usuario o contraseña incorrecta';
+            }
+
+            if (response.user) {
+                console.log("Datos del usuario en la respuesta:", response.user);
+            } else {
+                console.log("No se encontraron datos del usuario en la respuesta");
             }
         } else {
             errorMessage.value = 'Por favor, completa todos los campos.';
@@ -36,7 +43,6 @@ const login = async () => {
         loading.value = false;
     }
 };
-
 </script>
 
 <template>
