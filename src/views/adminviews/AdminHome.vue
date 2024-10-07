@@ -7,7 +7,6 @@ import TheBest from '@/components/home/TheBest.vue';
 </script>
 
 <template>
-    <AdminNav></AdminNav>
     <AboutUs/>
     <Services></Services>
     <OurAnimals></OurAnimals>

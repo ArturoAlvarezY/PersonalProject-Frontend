@@ -1,11 +1,12 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import Credentials from '@/models/Credentials';
+import Credentials from '@/models/Credentials'; 
 import AuthService from '@/core/api/authentication/services/AuthService';
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref({
         username: '',
+        role: '', 
         isAuthenticated: false
     });
 
@@ -15,7 +16,7 @@ export const useAuthStore = defineStore('auth', () => {
     function loadUserFromStorage() {
         const storedUser = localStorage.getItem('authUser');
         if (storedUser) {
-            user.value = JSON.parse(storedUser);
+            user.value = { ...JSON.parse(storedUser), isAuthenticated: true };
         }
     }
 
@@ -34,10 +35,17 @@ export const useAuthStore = defineStore('auth', () => {
             const service = new AuthService(credentials);
             const response = await service.login();
 
+            console.log("Login Response:", response);  
+
             if (response.success && response.isAuthenticated) {
-                user.value.username = username;
-                user.value.isAuthenticated = true;
-                localStorage.setItem('authUser', JSON.stringify({ username })); 
+                user.value = {
+                    username: response.user.username,
+                    role: response.user.role,
+                    isAuthenticated: true
+                };
+
+                localStorage.setItem('authUser', JSON.stringify(user.value));
+                console.log("Usuario después del login:", user.value);  
             } else {
                 errorMessage.value = response.message || 'Usuario o contraseña incorrecta';
                 user.value.isAuthenticated = false;
@@ -48,13 +56,13 @@ export const useAuthStore = defineStore('auth', () => {
             console.error("Login Error:", error);
             errorMessage.value = error.message || 'An error occurred. Please try again.';
             user.value.isAuthenticated = false;
-            throw error;
+            throw error; 
         } finally {
             loading.value = false;
         }
     }
 
-    loadUserFromStorage();
+    loadUserFromStorage();  
 
     return { user, login, loading, errorMessage };
 });
