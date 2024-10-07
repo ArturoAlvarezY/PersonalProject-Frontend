@@ -19,7 +19,7 @@ const authStore = useAuthStore();
 
 const isAuthenticated = computed(() => authStore.user.isAuthenticated);
 const isAdmin = computed(() => authStore.user.role === 'ROLE_ADMIN');
-const isUser = computed(() => authStore.user.role === 'ROLE_USER');
+const isUser = computed(() => authStore.user.role === 'ROLE_USER' || authStore.token !== null);
 
 
 </script>
