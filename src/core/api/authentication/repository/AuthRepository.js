@@ -16,7 +16,6 @@ export default class AuthRepository {
 
       console.log("Local Response:", localResponse);
 
-      // Verificamos si el login fue exitoso
       if (localResponse.data.Message === "Logged") {
         return {
           success: true,

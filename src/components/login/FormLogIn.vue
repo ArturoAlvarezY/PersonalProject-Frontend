@@ -18,7 +18,7 @@ const login = async () => {
         if (username.value.trim() && password.value.trim()) {
             const response = await authStore.login(username.value, password.value);
 
-            console.log("Respuesta completa de la API:", response); // Agregado para ver la respuesta completa
+            console.log("Respuesta completa de la API:", response);
 
             if (response.isAuthenticated) {
                 console.log("AUTHENTICATED!!!!");

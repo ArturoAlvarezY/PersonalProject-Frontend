@@ -1,84 +1,90 @@
-import { ref } from 'vue';
-import { defineStore } from 'pinia';
-import Credentials from '@/models/Credentials'; 
-import AuthService from '@/core/api/authentication/services/AuthService';
+import { ref } from "vue";
+import { defineStore } from "pinia";
+import Credentials from "@/models/Credentials";
+import AuthService from "@/core/api/authentication/services/AuthService";
 
-export const useAuthStore = defineStore('auth', () => {
-    const user = ref({
-        username: '',
-        role: '', 
-        isAuthenticated: false
-    });
-    const token = ref(null); // Agrega un ref para el token
-    const loading = ref(false);
-    const errorMessage = ref('');
+export const useAuthStore = defineStore("auth", () => {
+  const user = ref({
+    username: "",
+    role: "",
+    isAuthenticated: false,
+  });
+  const token = ref(null);
+  const loading = ref(false);
+  const errorMessage = ref("");
 
-    function loadUserFromStorage() {
-        const storedUser = localStorage.getItem('authUser');
-        const storedToken = localStorage.getItem('authToken'); // Carga el token del almacenamiento
-        if (storedUser && storedToken) {
-            user.value = { ...JSON.parse(storedUser), isAuthenticated: true };
-            token.value = storedToken; // Carga el token en la tienda
-        }
+  function loadUserFromStorage() {
+    const storedUser = localStorage.getItem("authUser");
+    const storedToken = localStorage.getItem("authToken");
+    
+    if (storedUser && storedToken) {
+      user.value = { ...JSON.parse(storedUser), isAuthenticated: true };
+      token.value = storedToken;
+    }
+  }
+
+  async function login(username, password) {
+    loading.value = true;
+    errorMessage.value = "";
+
+    if (!username || !password) {
+      errorMessage.value = "Please enter both username and password.";
+      loading.value = false;
+      return;
     }
 
-    async function login(username, password) {
-        loading.value = true;
-        errorMessage.value = ''; 
+    try {
+      const credentials = new Credentials(username, password);
+      const service = new AuthService(credentials);
+      const response = await service.login();
 
-        if (!username || !password) {
-            errorMessage.value = 'Please enter both username and password.';
-            loading.value = false; 
-            return;
-        }
+      console.log("Login Response:", response);
 
-        try {
-            const credentials = new Credentials(username, password);
-            const service = new AuthService(credentials);
-            const response = await service.login();
-
-            console.log("Login Response:", response);  
-
-            if (response.success && response.isAuthenticated) {
-                user.value = {
-                    id: response.user.id,
-                    username: response.user.username,
-                    role: response.user.role,
-                    isAuthenticated: true
-                };
-                token.value = response.token; // Almacena el token de respuesta
-
-                localStorage.setItem('authUser', JSON.stringify(user.value));
-                localStorage.setItem('authToken', token.value); // Almacena el token
-                console.log("Usuario después del login:", user.value);  
-            } else {
-                errorMessage.value = response.message || 'Usuario o contraseña incorrecta';
-                user.value.isAuthenticated = false;
-            }
-
-            return response;
-        } catch (error) {
-            console.error("Login Error:", error);
-            errorMessage.value = error.message || 'An error occurred. Please try again.';
-            user.value.isAuthenticated = false;
-            throw error; 
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    function logout() {
+      if (response.success && response.isAuthenticated) {
         user.value = {
-            username: '',
-            role: '', 
-            isAuthenticated: false
+          id: response.user.id,
+          username: response.user.username,
+          role: response.user.role,
+          isAuthenticated: true,
         };
-        token.value = null; 
-        localStorage.removeItem('authUser');
-        localStorage.removeItem('authToken'); // Elimina el token del almacenamiento
+        token.value = response.token;
+
+        localStorage.setItem("authUser", JSON.stringify(user.value));
+        localStorage.setItem("authToken", token.value);
+        console.log("Usuario después del login:", user.value);
+      } 
+      else {
+        errorMessage.value =
+          response.message || "Usuario o contraseña incorrecta";
+        user.value.isAuthenticated = false;
+      }
+
+      return response;
+    } 
+    catch (error) {
+      console.error("Login Error:", error);
+      errorMessage.value =
+        error.message || "An error occurred. Please try again.";
+      user.value.isAuthenticated = false;
+      throw error;
     }
+     finally {
+      loading.value = false;
+    }
+  }
 
-    loadUserFromStorage();  
+  function logout() {
+    user.value = {
+      username: "",
+      role: "",
+      isAuthenticated: false,
+    };
+    token.value = null;
+    localStorage.removeItem("authUser");
+    localStorage.removeItem("authToken");
+  }
 
-    return { user, token, login, logout, loading, errorMessage };
+  loadUserFromStorage();
+
+  return { user, token, login, logout, loading, errorMessage };
 });
