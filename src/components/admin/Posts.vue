@@ -80,20 +80,26 @@
   const selectedCard = ref(null);
   
   const fetchPosts = async (page = 0) => {
-    try {
-      const { data } = await axios.get(`http://localhost:8080/api/v1/posts`, {
-        params: {
-          page: page,
-          size: 6,
-        },
-      });
-      cards.value = data.content;
-      totalPages.value = data.totalPages;
-      currentPage.value = data.number;
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
+  try {
+    const auth = btoa(`${authStore.user.username}:password`); 
+
+    const { data } = await axios.get('http://localhost:8080/api/v1/posts', {
+      params: {
+        page: page,
+        size: 6,
+      },
+      headers: {
+        'Authorization': `Basic ${auth}`, 
+      },
+    });
+
+    cards.value = data.content;
+    totalPages.value = data.totalPages;
+    currentPage.value = data.number;
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+  }
+};
   
   const openModal = (card) => {
     selectedCard.value = card;
@@ -128,20 +134,4 @@
   });
   </script>
   
-  <style>
-  @import 'tailwindcss/base';
-  @import 'tailwindcss/components';
-  @import 'tailwindcss/utilities';
-  
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .pb-2\/3 {
-    padding-bottom: 66.666667%;
-  }
-  </style>
   
