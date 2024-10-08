@@ -7,9 +7,9 @@ import router from "./router";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import * as FaIcons from "oh-vue-icons/icons/fa";
-import { FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection, BiCalendarDate  } from "oh-vue-icons/icons";
+import { FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection, BiCalendarDate, FaImage, FaUser, FaArrowRight  } from "oh-vue-icons/icons";
 
-addIcons(FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection, BiCalendarDate  );
+addIcons(FaFlag, RiZhihuFill, CoDog, GiSittingDog, GiJumpingDog, GiDogHouse, WiMoonWaningCrescent5, SiPetsathome, GiLoveInjection, BiCalendarDate, FaImage, FaUser, FaArrowRight );
 
 const Fa = Object.values(FaIcons);
 addIcons(...Fa);
