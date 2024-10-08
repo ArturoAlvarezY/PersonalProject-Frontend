@@ -3,6 +3,8 @@
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Nuestros PetCares</h2>
         
+        <CreateCard v-if="isAdmin" @create="fetchPosts" @cancel="cancelCreate" />
+  
         <div v-if="cards.length" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="card in cards" :key="card.id" class="bg-white overflow-hidden shadow-lg rounded-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">
             <div class="relative pb-2/3">
@@ -15,13 +17,14 @@
               <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ card.title }}</h3>
               <p class="text-gray-600 mb-4 line-clamp-3">{{ card.content }}</p>
               <div class="flex items-center">
-                <v-icon name="fa-user" class="h-5 w-5 text-gray-400 mr-2" />
                 <span class="text-sm text-gray-500"></span>
               </div>
             </div>
             <div class="px-6 py-4 bg-gray-50 flex justify-between items-center">
               <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">ID: {{ card.id }}</span>
-              <button class="text-indigo-600 hover:text-indigo-900 transition-colors duration-200 flex items-center">
+              <button 
+                @click="openModal(card)" 
+                class="text-indigo-600 hover:text-indigo-900 transition-colors duration-200 flex items-center">
                 <span class="mr-1">Read more</span>
                 <v-icon name="fa-arrow-right" class="h-4 w-4" />
               </button>
@@ -52,18 +55,29 @@
           </button>
         </div>
       </div>
+  
+      <ReadMoreModal
+        v-if="selectedCard"
+        :post="selectedCard"
+        :isOpen="isModalOpen"
+        @close="closeModal"
+      />
     </div>
   </template>
   
   <script setup>
-  import { ref, onMounted, computed } from 'vue'
-  import axios from 'axios'
-  import AdminButtons from './AdminButtons.vue'; 
+  import { ref, onMounted, computed } from 'vue';
+  import axios from 'axios';
+  import AdminButtons from './AdminButtons.vue';
+  import CreateCard from './CreatePost.vue'; 
   import { useAuthStore } from '@/stores/auth';
+  import ReadMoreModal from './ReadMoreModal.vue';
   
   const cards = ref([]);
   const currentPage = ref(0);
   const totalPages = ref(1);
+  const isModalOpen = ref(false);
+  const selectedCard = ref(null);
   
   const fetchPosts = async (page = 0) => {
     try {
@@ -81,6 +95,16 @@
     }
   };
   
+  const openModal = (card) => {
+    selectedCard.value = card;
+    isModalOpen.value = true;
+  };
+  
+  const closeModal = () => {
+    selectedCard.value = null;
+    isModalOpen.value = false;
+  };
+  
   const handleEdit = (updatedPost) => {
     const index = cards.value.findIndex(card => card.id === updatedPost.id);
     if (index !== -1) {
@@ -95,13 +119,13 @@
   onMounted(() => {
     fetchPosts();
   });
-
+  
   const authStore = useAuthStore(); 
-
+  
   const isAdmin = computed(() => {
-  console.log('Is Admin:', authStore.user.role === 'ROLE_ADMIN'); 
-  return authStore.user.role === 'ROLE_ADMIN';
-});
+    console.log('Is Admin:', authStore.user.role === 'ROLE_ADMIN'); 
+    return authStore.user.role === 'ROLE_ADMIN';
+  });
   </script>
   
   <style>
